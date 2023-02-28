@@ -1,3 +1,9 @@
+// speeds are in ms between letters
+const TYPING_SPEED = 50
+const TYPING_VARIATION = 0
+const TYPING_NEW_WORD_PAUSE = 0
+
+// translation between page names and their keyword counterparts 
 const webpages = {
     "Home": "index",
     "Marble Mania": "marble-mania",
@@ -5,21 +11,26 @@ const webpages = {
     "YouTube": "youtube"
 }
 
+// quick sleep function
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// plays a little animation that types out the heading of each page
 async function loadInHeading() {
-    let heading = document.getElementsByClassName("heading")
-    let title = heading[0].innerHTML;
+    let heading = document.getElementsByClassName("heading")[0]
+    let title = heading.innerHTML;
 
-    heading[0].innerHTML = "";
+    heading.innerHTML = "";
 
     for (let i = 0; i < title.length; i++)
     {
-        heading[0].innerHTML = heading[0].innerHTML + title.charAt(i);
-        await sleep(50 + Math.floor(Math.random() * 150));
+        heading.innerHTML = heading.innerHTML + title.charAt(i);
+        let pause = i > 0 && title.charAt(i - 1) == ' ' ? TYPING_NEW_WORD_PAUSE : 0;
+        await sleep(TYPING_SPEED + Math.floor(Math.random() * TYPING_VARIATION) + pause);
     }
+
+    heading.classList.add("blink");
 }
 
 async function fetchHtml(address)

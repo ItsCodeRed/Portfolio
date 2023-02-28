@@ -1,26 +1,53 @@
+
+/* 
+-------------------
+HEADING 
+-------------------
+*/
+
 .heading
 {
     text-align: center;
     font-size: 5rem;
     color: white;
     padding: 3rem;
-    background-color: #aa0033;
+    color: #121417;
+    background-color: rgb(223, 34, 56);
+}
+
+.codered
+{
+    color: rgb(223, 34, 56);
+}
+
+/* 
+heading typing blink
+*/
+.heading::after {
+    content: "";
+    width: 3px;
+    height: 80px;
+    bottom: -10px;
+    position: relative;
+    display: inline-block;
+}
+
+.blink::after {
+    animation: cursor-blink 1s step-end infinite;
 }
 
 @keyframes cursor-blink {
 50% {
     opacity: 0;
 }
+100% {
+    opacity: 1;
+}
 }
 
-.heading::after {
-    content: "aaa";
-    width: 3px;
-    height: 80px;
-    margin: -10;
-    background: white;
-    display: inline-block;
-    animation: cursor-blink 1.5s step-start infinite;
+.heading::after, .background
+{
+    background-color: #121417;
 }
 
 .section
