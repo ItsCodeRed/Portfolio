@@ -1,0 +1,127 @@
+.heading
+{
+    text-align: center;
+    font-size: 5rem;
+    color: white;
+    padding: 3rem;
+    background-color: #aa0033;
+}
+
+@keyframes cursor-blink {
+50% {
+    opacity: 0;
+}
+}
+
+.heading::after {
+    content: "aaa";
+    width: 3px;
+    height: 80px;
+    margin: -10;
+    background: white;
+    display: inline-block;
+    animation: cursor-blink 1.5s step-start infinite;
+}
+
+.section
+{
+    text-align: center;
+    color: white;
+    margin: 3rem 10rem 3rem 10rem;
+}
+
+a
+{
+    color: #ff004d;
+}
+
+a:hover
+{
+    color: #aa0033;
+}
+
+.embeded
+{
+    margin: 3rem 0rem 3rem 0rem;
+}
+
+.sub-section
+{
+    text-align: center;
+    color: white;
+    margin: 3rem 0rem 3rem 0rem;
+    font-size: 1.5rem;
+}
+
+.small-text
+{
+    font-size: 1.2rem;
+}
+
+.break
+{
+    border: .1rem solid white;
+}
+
+.break-yt
+{
+    border: .1rem solid white;
+    width: 400px;
+}
+
+.thin
+{
+    padding: 0rem;
+}
+
+.inline
+{
+    display: inline-block;
+}
+
+.inline-img
+{
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+
+.yt
+{
+    text-align: center;
+    width: 500px;
+}
+
+.left
+{
+    text-align: left;
+}
+
+.center
+{
+    text-align: center;
+}
+
+.full-width
+{
+    width: 100%;
+}
+
+.results
+{
+    position: absolute;
+    top: 60px;
+    right: 100px;
+    width: 220px;
+}
+
+.dropdown-item:active
+{
+    background-color: #dddddd !important;
+    color: black !important;
+}
+
+.dropdown-item.active
+{
+    background-color: #dddddd !important;
+    color: black !important;
+}
