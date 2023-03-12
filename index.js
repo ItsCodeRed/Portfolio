@@ -7,6 +7,9 @@ const port = 3000
 app.use(express.static('static'))
 
 
+
+
+
 // --PAGES--
 
 // home page
@@ -19,23 +22,70 @@ app.get('/index', (req, res) => {
     res.redirect('/')
 })
 
+// redirect home page
+app.get('/home', (req, res) => {
+    res.redirect('/')
+})
+
 // youtube page
 app.get('/youtube', (req, res) => {
     res.sendFile(path.join(__dirname, '/static/youtube.html'))
 })
+
+// --GAMES--
+
+// marble mania page
+app.get('/marblemania', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/marblemania.html'))
+})
+
+// dodgeblob page
+app.get('/dodgeblob', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/dodgeblob.html'))
+})
+
+// beast hunter page
+app.get('/beasthunter', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/beasthunter.html'))
+})
+
+// BALLoon page
+app.get('/balloon', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/balloon.html'))
+})
+
+// magnet to a gunfight page
+app.get('/magnettoagunfight', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/magnettoagunfight.html'))
+})
+
+// death in strange places page
+app.get('/deathinstrangeplaces', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/deathinstrangeplaces.html'))
+})
+
+// --RLBOT--
 
 // redutils page
 app.get('/redutils', (req, res) => {
     res.sendFile(path.join(__dirname, '/static/redutils.html'))
 })
 
-// marble mania page
-app.get('/marble-mania', (req, res) => {
-    res.sendFile(path.join(__dirname, '/static/marble-mania.html'))
+// rivals page
+app.get('/rivals', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/rivals.html'))
 })
+
+// molten page
+app.get('/molten', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/molten.html'))
+})
+
+
+
 
 
 // starts server
 app.listen(port, () => {
-    console.log(`Website started on ${port}`)
+    console.log(`Website started at localhost:${port}`)
 })

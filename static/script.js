@@ -1,4 +1,5 @@
 // speeds are in ms between letters
+const INITIAL_TYPING_DELAY = 600;
 const TYPING_SPEED = 50
 const TYPING_VARIATION = 0
 const TYPING_NEW_WORD_PAUSE = 0
@@ -23,6 +24,9 @@ async function loadInHeading() {
 
     heading.innerHTML = "";
 
+    // waits a bit for the page to fade in
+    await sleep(INITIAL_TYPING_DELAY);
+
     for (let i = 0; i < title.length; i++)
     {
         heading.innerHTML = heading.innerHTML + title.charAt(i);
@@ -37,6 +41,11 @@ async function fetchHtml(address)
 {
     let response = await fetch(address);
     return await response.text();
+}
+
+function fadeOut(obj)
+{
+    obj.classList.add("fade-out");
 }
 
 let text = {};
@@ -83,11 +92,14 @@ function filter() {
     let searchResults = document.getElementById("search-results");
 
     searchResults.innerHTML = "";
-    let searchTerms = searchField.value.toLowerCase().split(" ");
+    let searchTerms = searchField.value.toLowerCase().match(/[^ ]+/g);
 
-    if (searchField.value.length == 0)
+    if (searchTerms == null)
     {
-        $('#results-collapse').collapse('hide');
+        if (!$('#results-collapse').is(":hidden"))
+        {
+            $('#results-collapse').dropdown('toggle');
+        }
         return;
     }
 
@@ -106,8 +118,18 @@ function filter() {
 
         if (count > 0)
         {
-            $('#results-collapse').collapse('show');
+            if ($('#results-collapse').is(":hidden"))
+            {
+                $('#results-collapse').dropdown('toggle');
+            }
             results[`<a class=\"list-group-item list-group-item-action\" href=\"/${link}\">${name}</a>`] = count;
+        }
+        else
+        {
+            if (!$('#results-collapse').is(":hidden"))
+            {
+                $('#results-collapse').dropdown('toggle');
+            }
         }
     }
 
