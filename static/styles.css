@@ -1,4 +1,9 @@
 
+:root {
+    --main-color: rgb(223, 34, 56);
+    --bg-color: #121417;
+}
+
 /* 
 -------------------
 HEADING 
@@ -7,32 +12,94 @@ HEADING
 
 .heading
 {
+    background: linear-gradient(
+        120deg,
+        transparent -10%,
+        var(--main-color) 100%
+    );
     text-align: center;
-    font-size: calc(3rem + 1vw);
-    color: white;
-    padding: 3rem;
-    color: #121417;
-    background-color: rgb(223, 34, 56);
+    font-size: calc(2.5rem + 2vw);
+    color: #000000;
+    overflow: hidden;
+    position: relative;
 }
+
+.title
+{
+    padding: 4rem;
+}
+
+@property --var1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 40%;
+  }
+
+  @property --var2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 70%;
+  }
+
+.heading-content
+{
+    position: absolute;
+    background: radial-gradient(
+        rgba(0, 0, 0, 0.1) 18%,
+        transparent 18%
+    ), linear-gradient(
+        0deg,
+        transparent 0 45%,
+        rgba(0, 0, 0, 0.05) 45% 55%,
+        transparent 55% 100%
+    ), linear-gradient(
+        90deg,
+        transparent 0 45%,
+        rgba(0, 0, 0, 0.05) 45% 55%,
+        transparent 55% 100%
+    );
+    background-position: 50% 0%;
+    background-size: 2rem 2rem;
+    bottom: -100%;
+    right: -50%;
+    left: -50%;
+    top: -100%;
+    transform: rotate(15deg);
+    animation: slide 0.5s linear infinite;
+}
+
+@keyframes slide
+{
+    0% 
+    {
+        transform: rotate(15deg) translateX(0rem);
+    }
+    100% 
+    {
+        transform: rotate(15deg) translateX(2rem);
+    }
+}
+  
 
 .codered
 {
     color: rgb(223, 34, 56);
 }
 
-.heading::after 
+.title::after 
 {
     content: "";
     width: 3px;
-    height: 70px; 
-    bottom: -15px;
+    height: calc((2.5rem + 2vw) * 1.25); 
+    bottom: calc((2.5rem + 2vw) * -0.25);
+    background-color: #121417;
     position: relative;
     display: inline-block;
 }
 
 .dropdown:hover>.auto-open {
     display: block;
-}
+} 
 
 .blink::after 
 {
@@ -94,11 +161,12 @@ HEADING
     }
 }
 
-.section
+.body
 {
     text-align: center;
     color: white;
-    margin: 3em 5em 3em 5em;
+    margin: min(calc(.5rem + 3vw), 3rem) min(3vw, 5rem);
+    font-size: calc(1rem + .5vw);
 }
 
 a
@@ -111,34 +179,44 @@ a:hover
     color: #aa0033;
 }
 
-.embeded
-{
-    margin: 3rem 0rem 3rem 0rem;
-}
-
-.sub-section
+.section
 {
     text-align: center;
     color: white;
-    margin: 3rem 0rem 3rem 0rem;
-    font-size: 1.3rem
+    font-size: calc(1rem + .5vw);
+    margin: min(calc(.5rem + 3vw), 3rem) auto;
+}
+
+.column
+{
+    margin-bottom: min(calc(.5rem + 3vw), 3rem);
 }
 
 .small-text
 {
-    font-size: 1rem;
+    font-size: calc(0.5rem + .5vw)
 }
 
 .break
 {
     border: .1rem solid white;
+    width: 100%;
+}
+
+.seperator
+{
+    border: .1rem solid white;
+    width: 100%;
+    display: inline-block;
 }
 
 .break-yt
 {
     display: inline-block;
     border: .1rem solid white;
-    width: 400px;
+    margin-bottom: 5px;
+    width: 100%;
+    max-width: 380px;
 }
 
 .thin
@@ -163,7 +241,7 @@ a:hover
     width: 500px;
 }
 
-.github
+.logo
 {
     position: relative;
     bottom: 5px;
@@ -200,4 +278,21 @@ a:hover
 {
     background-color: #dddddd !important;
     color: black !important;
+}
+
+.video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	height:0;
+	overflow:hidden;
+    text-align: center;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+    max-width: 100%;
+	height:100%;
 }

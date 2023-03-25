@@ -34,6 +34,11 @@ app.get('/youtube', (req, res) => {
 
 // --GAMES--
 
+// games page
+app.get('/games', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/games.html'))
+})
+
 // marble mania page
 app.get('/marblemania', (req, res) => {
     res.sendFile(path.join(__dirname, '/static/marblemania.html'))
@@ -65,6 +70,11 @@ app.get('/deathinstrangeplaces', (req, res) => {
 })
 
 // --RLBOT--
+
+// rlbot page
+app.get('/rlbot', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/rlbot.html'))
+})
 
 // redutils page
 app.get('/redutils', (req, res) => {

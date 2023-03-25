@@ -7,9 +7,17 @@ const TYPING_NEW_WORD_PAUSE = 0
 // translation between page names and their keyword counterparts 
 const webpages = {
     "Home": "index",
-    "Marble Mania": "marble-mania",
+    "YouTube": "youtube",
+    "Games": "games",
+    "BALLoon" : "balloon",
+    "MAGNET to a GUNFIGHT": "magnettoagunfight",
+    "Dodgeblob": "dodgeblob",
+    "Death in Strange Places": "deathinstrangeplaces",
+    "Rivals Airshow": "rivals",
+    "Molten": "molten",
+    "Beast Hunter": "beasthunter",
+    "Marble Mania": "marblemania",
     "RedUtils": "redutils",
-    "YouTube": "youtube"
 }
 
 // quick sleep function
@@ -19,7 +27,7 @@ function sleep(ms) {
 
 // plays a little animation that types out the heading of each page
 async function loadInHeading() {
-    let heading = document.getElementsByClassName("heading")[0]
+    let heading = document.getElementsByClassName("title")[0]
     let title = heading.innerHTML;
 
     heading.innerHTML = "";
@@ -165,4 +173,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     let searchField = document.getElementById("search");
     searchField.addEventListener('keyup', filter);
     document.addEventListener('submit', search);
+
+    var mediaquery = window.matchMedia("(max-width: 768px)");
+    if (mediaquery.matches) { 
+        // on mobile
+        $('.dropdown-toggle').not("#search").removeClass("dropdown-toggle");
+        $('.auto-open').removeClass("auto-open");
+    }
 });
