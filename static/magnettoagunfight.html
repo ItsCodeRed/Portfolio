@@ -22,18 +22,30 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Home</a>
+                  <a class="nav-link" href="/index">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/youtube">YouTube</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                    Projects
-                  </a>
-                  <ul class="dropdown-menu">
+                  <a role="button" class="nav-link dropdown-toggle" href="/games">Games</a>
+                  <ul class="dropdown-menu auto-open">
+                    <li><a class="dropdown-item" href="/marblemania">Marble Mania</a></li>
+                    <li><a class="dropdown-item" href="/dodgeblob">Dodgeblob</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><h6 class="dropdown-header">Jam Games</h6></li>
+                    <li><a class="dropdown-item" href="/beasthunter">Beast Hunter</a></li>
+                    <li><a class="dropdown-item" href="/balloon">BALLoon</a></li>
+                    <li><a class="dropdown-item active" href="/magnettoagunfight">MAGNET to a GUNFIGHT</a></li>
+                    <li><a class="dropdown-item" href="/deathinstrangeplaces">Death in Strange Places</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a role="button" class="nav-link dropdown-toggle" href="/rlbot">RLBot</a>
+                  <ul class="dropdown-menu auto-open">
                     <li><a class="dropdown-item" href="/redutils">RedUtils</a></li>
-                    <li><a class="dropdown-item" href="/marble-mania">Marble Mania</a></li>
+                    <li><a class="dropdown-item" href="/rivals">Rivals Airshow</a></li>
+                    <li><a class="dropdown-item" href="/molten">Molten</a></li>
                   </ul>
                 </li>
               </ul>
@@ -51,17 +63,53 @@
         </div>
         </nav>
 
-        <div class="heading">CodeRed's Showcase Website</div>
-        <div class="section">
-          <div class="sub-section">
-            Welcome to my Showcase Site! I'm <span class="codered">CodeRed</span>, and I've created this for website for CS50X!
+        <div class="heading">
+          <div class="heading-content"></div>
+          <div class="title">MAGNET to a GUNFIGHT</div>
+        </div>
+        <div class="body">
+          <div class="section" style="max-width: calc((1rem + .5vw) * 35);">
+            A 3D top down arcade style beat-em-up game created in Unity for the <a href="https://itch.io/jam/scorejam18">ScoreSpace Game Jam #18</a>,
+            with music created by <a href="https://linktr.ee/keeganwclark">Keegan Clark</a>.
           </div>
           <hr class="break">
-          <div class="sub-section">
-            I'm planning to evantually make this my public showcase site, but for now, this is more like a concept for what my showcase site might look like.
-            <br>
-            Take a look around! You can use the search bar in the top right to find something specific.
-          </div>
+            <div class="container-fluid text-center">
+              <div class="row justify-content-center">
+                <div class="col-md-auto" style="max-width: 640px; width: 100%; margin: 0px auto;">
+                  <div class="video-container section">
+                    <iframe width="560" height="360" src="https://www.youtube.com/embed/O2V5FEz2pbk" title="Magnet to a Gunfight Video"
+                      frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="embeded"></iframe>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="section left">
+                    This game was made in 3 days for the <a href="https://itch.io/jam/scorejam18">18th ScoreSpace jam</a>. 
+                    This was the first game jam I had ever competed in, so I was a bit scared that 3 days would not be enough time for me.<br><br>
+
+                    The theme for this jam was magnetic, and I quickly got attached to the idea of someone using a magnet as a weapon to magnetize bullets and other weapons.
+                    Once I had the idea in place, I started feverishly working on gameplay. 
+                    The music for the game was created by <a href="https://linktr.ee/keeganwclark">Keegan Clark</a>, who contribued two tracks
+                    for the game. As per the requirements of the <a href="https://scorespace.net">ScoreSpace</a> 
+                    game jam, I also implemented a highscore system, and an online leaderboard for the game using LootLocker.<br><br>
+                    
+                    In the end, the game ended up placing <b><a href="https://itch.io/jam/scorejam18/rate/1512444">8th/123 games!</a></b> 
+                    Which I was very happy with as my first game jam game. You can check out the code for the game on github, play it on itch.io, or watch the video on this page
+                    for a more in-depth look at how it was made.
+                  </div>
+                  <hr class="break">
+                  <div class="section">
+                    <h2 class="inline">Itch.io: </h2>
+                    <a href="https://coderedyt.itch.io/magnet-to-a-gunfight" class="inline" style="padding-right: 1vw;">
+                      <img src="/assets/itch-io.png" width="50" height="50" class="logo"></image>
+                    </a>
+                    <h2 class="inline">GitHub: </h2>
+                    <a href="https://github.com/ItsCodeRed/MAGNETtoaGUNFIGHT" class="inline">
+                      <img src="/assets/github-logo.png" width="50" height="50" class="logo"></image>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>

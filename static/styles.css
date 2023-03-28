@@ -174,9 +174,19 @@ a
     color: #ff004d;
 }
 
+a>img
+{
+    transition: all .05s ease-in-out; 
+}
+
 a:hover
 {
     color: #aa0033;
+}
+
+a:hover>img
+{
+    transform: scale(1.05); 
 }
 
 .section
@@ -295,4 +305,10 @@ a:hover
 	width:100%;
     max-width: 100%;
 	height:100%;
+}
+
+.game {
+    width: 400px;
+    height: auto;
+    padding: 1rem;
 }
