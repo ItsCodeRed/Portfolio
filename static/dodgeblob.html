@@ -22,18 +22,30 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Home</a>
+                  <a class="nav-link" href="/index">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/youtube">YouTube</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                    Projects
-                  </a>
-                  <ul class="dropdown-menu">
+                  <a role="button" class="nav-link dropdown-toggle" href="/games">Games</a>
+                  <ul class="dropdown-menu auto-open">
+                    <li><a class="dropdown-item" href="/marblemania">Marble Mania</a></li>
+                    <li><a class="dropdown-item active" href="/dodgeblob">Dodgeblob</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><h6 class="dropdown-header">Jam Games</h6></li>
+                    <li><a class="dropdown-item" href="/beasthunter">Beast Hunter</a></li>
+                    <li><a class="dropdown-item" href="/balloon">BALLoon</a></li>
+                    <li><a class="dropdown-item" href="/magnettoagunfight">MAGNET to a GUNFIGHT</a></li>
+                    <li><a class="dropdown-item" href="/deathinstrangeplaces">Death in Strange Places</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a role="button" class="nav-link dropdown-toggle" href="/rlbot">RLBot</a>
+                  <ul class="dropdown-menu auto-open">
                     <li><a class="dropdown-item" href="/redutils">RedUtils</a></li>
-                    <li><a class="dropdown-item" href="/marble-mania">Marble Mania</a></li>
+                    <li><a class="dropdown-item" href="/rivals">Rivals Airshow</a></li>
+                    <li><a class="dropdown-item" href="/molten">Molten</a></li>
                   </ul>
                 </li>
               </ul>
@@ -51,17 +63,41 @@
         </div>
         </nav>
 
-        <div class="heading">CodeRed's Showcase Website</div>
-        <div class="section">
-          <div class="sub-section">
-            Welcome to my Showcase Site! I'm <span class="codered">CodeRed</span>, and I've created this for website for CS50X!
-          </div>
-          <hr class="break">
-          <div class="sub-section">
-            I'm planning to evantually make this my public showcase site, but for now, this is more like a concept for what my showcase site might look like.
-            <br>
-            Take a look around! You can use the search bar in the top right to find something specific.
-          </div>
+        <div class="heading">
+          <div class="heading-content"></div>
+          <div class="title">DodgeBlob</div>
+          <div class="subtitle">A 3D multiplayer dodgeball game created in Unity</div>
+        </div>
+        <div class="body">
+            <div class="container-fluid text-center">
+              <div class="row justify-content-center">
+                <div class="col-md-auto" style="max-width: 640px; width: 100%; margin: 0px auto;">
+                  <div class="video-container column">
+                    <iframe width="560" height="360" src="https://www.youtube.com/embed/Te8v1t68zns?list=PLnmqxwI5nKHnmDea0-eQR2rGP4jALJDav" title="DodgeBlob Devlogs"
+                      frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="embeded"></iframe>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="left">
+                    This game was a first-person multiplayer dodgeball game where all the players played as blobs. I created a 3D movement controller, an animated blob model 
+                    in blender, and the dodgeball logic. However, the most important part of this project was the multiplayer element.<br><br>
+
+                    This was my second attempt at making a 3D multiplayer game. My first attempt didn't get far enough for me to feel like it was worth listing on this site,
+                    but it used an custom php login system I made, and Photon. This project, however, used a custom multiplayer system I learned to create using a tutorial 
+                    series by Tom Weiland.<br><br>
+
+                    I did change up the multiplayer code a bit from the tutorial series, including running the servers at 60tps. However, I did run into quite a few issues with 
+                    desync when too many players joined, so I stopped working on the project. Nonetheless, this was a great project for learning how to code multiplayer code using UDP/TCP. 
+                    You can check out the code on github if you want to take a look.
+                  </div>
+                  <hr class="break">
+                  <h2 class="inline">GitHub: </h2>
+                  <a href="https://github.com/ItsCodeRed/DodgeBlob" class="inline">
+                    <img src="/assets/github-logo.png" width="50" height="50" class="logo"></image>
+                  </a>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>

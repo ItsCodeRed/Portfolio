@@ -1,6 +1,8 @@
 // speeds are in ms between letters
 const INITIAL_TYPING_DELAY = 600;
-const TYPING_SPEED = 50
+const HEADING_SWITCH_DELAY = 50;
+const TYPING_SPEED = 60
+const SUBTITLE_TYPING_SPEED = 30
 const TYPING_VARIATION = 0
 const TYPING_NEW_WORD_PAUSE = 0
 
@@ -27,22 +29,85 @@ function sleep(ms) {
 
 // plays a little animation that types out the heading of each page
 async function loadInHeading() {
-    let heading = document.getElementsByClassName("title")[0]
-    let title = heading.innerHTML;
+    let titleElements = document.getElementsByClassName("title")
 
-    heading.innerHTML = "";
+    if (titleElements.length == 0) return;
+
+    let titleElement = titleElements[0];
+    let title = titleElement.innerHTML;
+    console.log(titleElement.scrollHeight);
+
+    while (titleElement.scrollHeight < 25)
+    {
+        await sleep(100);
+    }
+
+    console.log(titleElement.scrollHeight);
+    var contentHeight = titleElement.scrollHeight;
+    titleElement.style.height = contentHeight + "px";
+
+    titleElement.innerHTML = ``;
+
+    // let subtitleElements = document.getElementsByClassName("subtitle")
+    // let subtitleElement = null;
+    // let subtitleNodeStrings = [];
+
+    // if (subtitleElements.length > 0)
+    // {
+    //     subtitleElement = subtitleElements[0];
+    //     subtitleElement.classList.add("unselected");
+
+    //     var contentHeight = subtitleElement.scrollHeight;
+    //     subtitleElement.style.height = contentHeight + "px";
+
+    //     let nodes = subtitleElement.childNodes;
+    //     for (let i = 0; i < nodes.length; i++) 
+    //     {
+    //         console.log(nodes[i].textContent);
+    //         subtitleNodeStrings.push(nodes[i].textContent);
+    //         nodes[i].textContent = "";
+    //     }
+    // }
 
     // waits a bit for the page to fade in
     await sleep(INITIAL_TYPING_DELAY);
 
-    for (let i = 0; i < title.length; i++)
+    for (let i = 0; i < title.length; i++) 
     {
-        heading.innerHTML = heading.innerHTML + title.charAt(i);
-        let pause = i > 0 && title.charAt(i - 1) == ' ' ? TYPING_NEW_WORD_PAUSE : 0;
-        await sleep(TYPING_SPEED + Math.floor(Math.random() * TYPING_VARIATION) + pause);
+        await typeLetter(titleElement, i, title);
     }
 
-    heading.classList.add("blink");
+    titleElement.classList.add("blink");
+
+    let subtitleElement = document.getElementsByClassName("subtitle")[0];
+    if (subtitleElement == null) 
+    {
+        return;
+    }
+    
+    // titleElement.classList.add("unselected");
+    titleElement.classList.add("slide-up");
+    subtitleElement.classList.add("fade-in");
+
+    // await sleep(HEADING_SWITCH_DELAY);
+
+    // let nodes = subtitleElement.childNodes;
+    // for (let i = 0; i < nodes.length; i++) 
+    // {
+    //     for (let j = 0; j < subtitleNodeStrings[i].length; j++) 
+    //     {
+    //         await typeLetter(nodes[i], j, subtitleNodeStrings[i], SUBTITLE_TYPING_SPEED);
+    //     }
+    // }
+
+    // subtitleElement.classList.add("blink");
+}
+
+async function typeLetter(target, index, text, typingSpeed=TYPING_SPEED)
+{
+    target.textContent += text.charAt(index);
+    let pause = index > 0 && text.charAt(index - 1) == ' ' ? TYPING_NEW_WORD_PAUSE : 0;
+    await sleep(typingSpeed + Math.floor(Math.random() * TYPING_VARIATION) + pause);
 }
 
 async function fetchHtml(address)
