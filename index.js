@@ -91,6 +91,11 @@ app.get('/molten', (req, res) => {
     res.sendFile(path.join(__dirname, '/static/molten.html'))
 })
 
+// broccolibot page
+app.get('/broccolibot', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/broccolibot.html'))
+})
+
 
 
 

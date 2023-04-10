@@ -48,27 +48,6 @@ async function loadInHeading() {
 
     titleElement.innerHTML = ``;
 
-    // let subtitleElements = document.getElementsByClassName("subtitle")
-    // let subtitleElement = null;
-    // let subtitleNodeStrings = [];
-
-    // if (subtitleElements.length > 0)
-    // {
-    //     subtitleElement = subtitleElements[0];
-    //     subtitleElement.classList.add("unselected");
-
-    //     var contentHeight = subtitleElement.scrollHeight;
-    //     subtitleElement.style.height = contentHeight + "px";
-
-    //     let nodes = subtitleElement.childNodes;
-    //     for (let i = 0; i < nodes.length; i++) 
-    //     {
-    //         console.log(nodes[i].textContent);
-    //         subtitleNodeStrings.push(nodes[i].textContent);
-    //         nodes[i].textContent = "";
-    //     }
-    // }
-
     // waits a bit for the page to fade in
     await sleep(INITIAL_TYPING_DELAY);
 
@@ -84,23 +63,9 @@ async function loadInHeading() {
     {
         return;
     }
-    
-    // titleElement.classList.add("unselected");
+
     titleElement.classList.add("slide-up");
     subtitleElement.classList.add("fade-in");
-
-    // await sleep(HEADING_SWITCH_DELAY);
-
-    // let nodes = subtitleElement.childNodes;
-    // for (let i = 0; i < nodes.length; i++) 
-    // {
-    //     for (let j = 0; j < subtitleNodeStrings[i].length; j++) 
-    //     {
-    //         await typeLetter(nodes[i], j, subtitleNodeStrings[i], SUBTITLE_TYPING_SPEED);
-    //     }
-    // }
-
-    // subtitleElement.classList.add("blink");
 }
 
 async function typeLetter(target, index, text, typingSpeed=TYPING_SPEED)
@@ -182,14 +147,24 @@ function filter() {
     {
         let link = webpages[name];
         let pageContent = text[name].toLowerCase();
-        let count = 0;
+        let count = 1;
 
         for (let i = 0; i < searchTerms.length; i++)
         {
-            count += pageContent.split(searchTerms[i]).length - 1;
+            let numOnPage = pageContent.split(searchTerms[i]).length; 
+
+            for (let webpage in webpages)
+            {
+                if (webpage.toLowerCase().split(searchTerms[i]).length > 1)
+                {
+                    numOnPage = numOnPage - 1;
+                }
+            }
+
+            count *= numOnPage;
         }
 
-        if (count > 0)
+        if (count > 1)
         {
             if ($('#results-collapse').is(":hidden"))
             {
@@ -197,27 +172,28 @@ function filter() {
             }
             results[`<a class=\"list-group-item list-group-item-action\" href=\"/${link}\">${name}</a>`] = count;
         }
-        else
-        {
-            if (!$('#results-collapse').is(":hidden"))
-            {
-                $('#results-collapse').dropdown('toggle');
-            }
-        }
     }
 
     results = sortDic(results);
 
     let first = true;
+    let mostResults;
 
     for (let item in results)
     {
         if (first)
         {
+            mostResults = results[item];
             item = item.slice(0, 10) + "first " + item.slice(10);
             first = false;
         }
+        else if (results[item] < mostResults * 0.2) continue;
         searchResults.innerHTML += item;
+    }
+
+    if (Object.keys(results).length == 0 && !($('#results-collapse').is(":hidden")))
+    {
+        $('#results-collapse').dropdown('toggle');
     }
 }
 
@@ -232,12 +208,30 @@ function search()
     }
 }
 
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+  
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementBottom = reveals[i].getBoundingClientRect().bottom;
+      var elementVisible = reveals[i].getBoundingClientRect().height * 0.8;
+  
+      if (elementTop < windowHeight - elementVisible && elementBottom > elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+
 document.addEventListener('DOMContentLoaded', async function() {
     loadInHeading();
     await getData();
     let searchField = document.getElementById("search");
     searchField.addEventListener('keyup', filter);
     document.addEventListener('submit', search);
+    window.addEventListener("scroll", reveal);
 
     var mediaquery = window.matchMedia("(max-width: 768px)");
     if (mediaquery.matches) { 

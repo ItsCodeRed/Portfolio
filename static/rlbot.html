@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                  <a class="nav-link active" href="/index">Home</a>
+                  <a class="nav-link" href="/index">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/youtube">YouTube</a>
@@ -41,11 +41,12 @@
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
-                  <a role="button" class="nav-link dropdown-toggle" href="/rlbot">RLBot</a>
+                  <a role="button" class="nav-link active dropdown-toggle" href="/rlbot">RLBot</a>
                   <ul class="dropdown-menu auto-open">
                     <li><a class="dropdown-item" href="/redutils">RedUtils</a></li>
                     <li><a class="dropdown-item" href="/rivals">Rivals Airshow</a></li>
                     <li><a class="dropdown-item" href="/molten">Molten</a></li>
+                    <li><a class="dropdown-item" href="/broccolibot">BroccoliBot</a></li>
                   </ul>
                 </li>
               </ul>
@@ -63,16 +64,40 @@
         </div>
         </nav>
 
-        <div class="heading">CodeRed's Showcase Website</div>
-        <div class="section">
-          <div class="sub-section">
-            Welcome to my Showcase Site! I'm <span class="codered">CodeRed</span>, and I've created this for website for CS50X!
+        <div class="heading">
+          <div class="heading-content"></div>
+          <div class="title">RLBot</div>
+        </div>
+        <div class="body narrower">
+          <div class="text-center" style="max-width: calc((1rem + .5vw) * 40); margin-left: auto; margin-right: auto;">
+            RLBot is a community of programmers who make bots that play the game <a href="https://www.rocketleague.com">Rocket League</a>. I first joined this community in 2018, and have made many projects 
+            within the community. Here are the most notable of these:<br><br>
           </div>
           <hr class="break">
-          <div class="sub-section">
-            I'm planning to evantually make this my public showcase site, but for now, this is more like a concept for what my showcase site might look like.
-            <br>
-            Take a look around! You can use the search bar in the top right to find something specific.
+          <a href="/redutils">
+            <div class="preview-container reveal">
+              <h1 class="preview-text">RedUtils</h1>
+              <div class="circle reveal" style="width: 100%; height: auto;">
+                <img src="/assets/rivalsgif.gif" style="width: 100%; height: auto;">
+              </div>
+              <h1 class="preview-desc">
+                A set of C# coding utilities designed to help people make bots for Rocket League
+              </h1>
+            </div>
+          </a>
+          <hr class="break">
+          <a href="/rivals">
+            <div class="preview-container reveal">
+              <h1 class="preview-text">Rivals</h1>
+              <div class="circle reveal" style="width: 100%; height: auto;">
+                <img src="/assets/rivalsgif.gif" style="width: 100%; height: auto;">
+              </div>
+              <h1 class="preview-desc">
+                An airshow performed by bots, written in Python, for the game Rocket League
+              </h1>
+            </div>
+          </a>
+          <div class="container-fluid left" style="background-image: url('/assets/rivalsgif.gif'); background-size: 100% auto;">
           </div>
         </div>
       </div>
