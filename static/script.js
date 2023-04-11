@@ -215,9 +215,9 @@ function reveal() {
       var windowHeight = window.innerHeight;
       var elementTop = reveals[i].getBoundingClientRect().top;
       var elementBottom = reveals[i].getBoundingClientRect().bottom;
-      var elementVisible = reveals[i].getBoundingClientRect().height * 0.8;
+      var elementVisible = reveals[i].getBoundingClientRect().height * 0.2;
   
-      if (elementTop < windowHeight - elementVisible && elementBottom > elementVisible) {
+      if (elementBottom < windowHeight + elementVisible && elementBottom > elementVisible) {
         reveals[i].classList.add("active");
       } else {
         reveals[i].classList.remove("active");
@@ -232,6 +232,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     searchField.addEventListener('keyup', filter);
     document.addEventListener('submit', search);
     window.addEventListener("scroll", reveal);
+    reveal();
 
     var mediaquery = window.matchMedia("(max-width: 768px)");
     if (mediaquery.matches) { 

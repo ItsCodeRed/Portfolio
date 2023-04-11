@@ -118,13 +118,9 @@ HEADING
     font-weight: 700;
 }
 
-.subtitle>a:hover
+.subtitle>a::after
 {
-    color: #ff004d;
-    text-shadow: -1px 1px 0 #000,
-        1px 1px 0 #000,
-        1px -1px 0 #000,
-        -1px -1px 0 #000;
+    background-color: #000 !important;
 }
 
 @property --var1 {
@@ -247,9 +243,12 @@ HEADING
     font-size: calc(1rem + .5vw);
 }
 
-a
+a:not(:has(img))
 {
     color: #ff004d;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
 }
 
 a>img
@@ -257,9 +256,24 @@ a>img
     transition: all .05s ease-in-out; 
 }
 
-a:hover
+a:not(.dropdown-toggle):not(:has(img))::after 
 {
-    color: #aa0033;
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ff004d;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+  
+a:not(.dropdown-toggle):not(:has(img)):hover::after 
+{
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 a:hover>img
