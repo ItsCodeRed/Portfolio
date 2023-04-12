@@ -11,6 +11,7 @@ const webpages = {
     "Home": "index",
     "YouTube": "youtube",
     "Games": "games",
+    "RLBot": "rlbot",
     "BALLoon" : "balloon",
     "MAGNET to a GUNFIGHT": "magnettoagunfight",
     "Dodgeblob": "dodgeblob",
@@ -18,6 +19,7 @@ const webpages = {
     "Rivals Airshow": "rivals",
     "Molten": "molten",
     "Beast Hunter": "beasthunter",
+    "BroccoliBot": "broccolibot",
     "Marble Mania": "marblemania",
     "RedUtils": "redutils",
 }

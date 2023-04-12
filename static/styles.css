@@ -121,6 +121,7 @@ HEADING
 .subtitle>a::after
 {
     background-color: #000 !important;
+    height: 2px;
 }
 
 @property --var1 {
@@ -456,7 +457,7 @@ a:hover>img
 
 .preview-text
 {
-    font-size: calc(2.5rem + 2vw);
+    font-size: calc(1.5rem + 4vw);
     top: 3vw; 
     left: 2vw; 
     position: absolute;  
@@ -465,7 +466,7 @@ a:hover>img
 }
 
 .preview-container.reveal.active>.preview-text {
-    font-size: calc(2.5rem + 4vw);
+    font-size: calc(1.5rem + 6vw);
 }
 
 .preview-desc
