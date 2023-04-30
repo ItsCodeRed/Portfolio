@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en" data-bs-theme="dark">
+<%- include('../partials/head', {projects: true, rlbot: true, title: "RedUtils" }); %>
+  <div class="heading">
+    <div class="heading-content"></div>
+    <div class="title">RedUtilities</div>
+    <div class="subtitle" style="max-width: calc((1rem + .75vw) * 30);">A set of C# programming utilities designed
+      to help you create and program bots for Rocket League.</div>
+  </div>
+  <div class="body">
+    <div class="">
+      <div class="container-fluid text-center">
+        <div class="row justify-content-center">
+          <div class="col-auto column" style="max-width: 640px; width: 100%; margin-inline: auto; margin-bottom: 0px;">
+            <h2>Tutorials<br></h2>
+            <p id="tutorials" style="text-align:center;" class="video-container"><iframe width="560" height="315"
+                src="https://www.youtube.com/embed/videoseries?list=PLya5kk1rYdS4PqJV19B3KIH7l3P6lZPwX"
+                title="Tutorials" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen class="embeded"></iframe></p>
+            <h2>RLBot Championship 2022<br></h2>
+            <p id="championship" style="text-align:center;" class="video-container"><iframe width="560" height="315"
+                src="https://www.youtube.com/embed/XVIxZA6gFRI" title="RLBot Championship 2022" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen class="embeded"></iframe></p>
+          </div>
+          <div class="col left">
+            RedUtilities works using the <a href="https://rlbot.org/">RLBot framework</a>, which is a
+            framework for making and playing with these bots.
+            The <a href="https://rlbot.org/">RLBot framework</a> also has direct support from <a
+              href="https://www.psyonix.com/">Psyonix</a>, the creators of Rocket League.<br><br>
+
+            RedUtilities is loosly based on another set of RLBot utilities made in python, called <a
+              href="https://github.com/ddthj/GoslingUtils">GoslingUtils</a>.
+            In <a href="https://github.com/ddthj/GoslingUtils">GoslingUtils</a>, bots would push "Routines"
+            to the routine stack, and then the top routine would run
+            every frame until it was completed, then the routine would be popped from the stack, and the
+            next routine would run.
+            In RedUtilites, bots run "Actions", only one action could be running at a time, and there isn't
+            any stack.
+            Instead, actions often had sub-actions running inside, and possibly sub-actions within
+            sub-actions.<br><br>
+
+            RedUtilities also comes with many actions built in, like aerial actions, double jump actions,
+            and so on.
+            These actions used heavy amounts of physics and linear algebra to position the car correctly
+            during the action.<br><br>
+
+            The example bot for RedUtilities, RedBot, managed to get 3rd in the <a
+              href="https://www.youtube.com/embed/XVIxZA6gFRI">2022 RLBot Championship</a>. It was only
+            beaten by
+            two machine learning bots, making RedBot the best non-maching learning bot in the entire
+            tournament. You can check out
+            RedUtilities on <a href="https://github.com/ItsCodeRed/RedUtils">github</a>, or you can get
+            started using RedUtilities by following my
+            <a href="https://www.youtube.com/embed/videoseries?list=PLya5kk1rYdS4PqJV19B3KIH7l3P6lZPwX">tutorial
+              series.</a>
+            <hr class="break">
+            <div class="center">
+              <h2 class="inline">GitHub: </h2>
+              <a href="https://github.com/ItsCodeRed/RedUtils" class="inline">
+                <img src="/assets/github-logo.png" width="50" height="50" class="logo"></image>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
+
+<!-- <p>c# redutils redutils rlbot rocket league psyonix</p> -->

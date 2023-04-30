@@ -3,6 +3,7 @@
     --main-color: rgb(223, 34, 56);
     --bg-color: #121417;
     --heading-size: 8vh;
+    --big-heading-size: 30vh;
 }
 
 /* 
@@ -30,6 +31,11 @@ HEADING
     padding-bottom: var(--heading-size);
     font-size: calc(2.5rem + 2vw);
     font-weight: 500;
+}
+
+.big
+{
+    --heading-size: var(--big-heading-size);
 }
 
 .slide-up
@@ -69,6 +75,18 @@ HEADING
 .blink::after 
 {
     animation: cursor-blink 1s step-end infinite;
+}
+
+.btn-submit:hover
+{
+    border-color: var(--main-color);
+    color: var(--main-color);
+    background-color: var(--bg-color);;
+}
+
+.btn-submit
+{
+    transition: .1s;
 }
 
 @keyframes cursor-blink 
@@ -175,7 +193,6 @@ HEADING
         transform: rotate(15deg) translateX(2rem);
     }
 }
-  
 
 .codered
 {
@@ -376,16 +393,21 @@ a:hover>img
     margin-block: -10px;
 }
 
-.dropdown-item:active
-{
-    background-color: #dddddd !important;
-    color: black !important;
-}
-
 .dropdown-item.active
 {
-    background-color: #dddddd !important;
-    color: black !important;
+    color: white !important;
+    background-color: transparent !important;
+}
+
+.dropdown-item.active:hover
+{
+    color: white !important;
+    background-color: var(--bs-dropdown-link-hover-bg) !important;
+}
+
+.dropdown-item:active
+{
+    background-color: var(--main-color) !important;
 }
 
 .video-container {
@@ -444,8 +466,8 @@ a:hover>img
     transition: 0.5s linear;
 }
 
-.circle.reveal.active {
-    transform: scale(1.05);
+.preview-container.reveal.active {
+    transform: scale(1.04);
 }
 
 .preview-container
@@ -453,6 +475,8 @@ a:hover>img
     width: 100%; 
     height: auto; 
     position: relative;
+    overflow: hidden;
+    transition: 2s;
 }
 
 .preview-text

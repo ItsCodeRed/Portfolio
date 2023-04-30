@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" data-bs-theme="dark">
+<%- include('../partials/head', {contact: true, title: "Contact" }); %>
+
+  <div class="heading">
+    <div class="heading-content"></div>
+    <div class="title">Contact</div>
+  </div>
+  <div class="body narrower">
+    <div class="container left">
+      <div class="row justify-content-center">
+        <div class="col-8" style="max-width: 500px;">
+          <form action="/contact" method="post">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Joe">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" name="email" placeholder="joe@email.com">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" name="message" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <button class="form-control btn-submit" type="submit" style="width:50%;">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-4" style="max-width: 200px;">
+          One of three columns
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
+
+<!-- <p>socials email contact</p> -->
