@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const app = express()
 const path = require('path');
-const port = 3000
+const port = process.env.PORT || 8080;
 
 // gives access to static files (html, css, js)
 app.use(express.static('static'))
@@ -59,10 +59,10 @@ app.post('/contact', (req, res) => {
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.error(error);
-        res.status(500).send('Error sending message');
+        res.render("pages/contact");
       } else {
         console.log('Message sent:', info.response);
-        res.send('Message sent successfully');
+        res.render("pages/contact");
       }
     });
   });
@@ -143,5 +143,5 @@ app.get('/broccolibot', (req, res) => {
 
 // starts server
 app.listen(port, () => {
-    console.log(`Website started at localhost:${port}`)
+    console.log(`Website started at port ${port}`)
 })
