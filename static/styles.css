@@ -282,6 +282,12 @@ HEADING
     position: relative;
 }
 
+a
+{
+    color: #ff004d;
+    text-decoration: none;
+}
+
 .highlightable
 {
     display: inline-block;
