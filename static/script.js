@@ -174,7 +174,7 @@ function filter() {
             {
                 $('#results-collapse').dropdown('toggle');
             }
-            results[`<a class=\"list-group-item list-group-item-action\" href=\"/${link}\">${name}</a>`] = count;
+            results[`<a class=\"list-group-item highlightable list-group-item-action\" href=\"/${link}\">${name}</a>`] = count;
         }
     }
 
